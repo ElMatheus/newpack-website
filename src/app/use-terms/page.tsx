@@ -63,8 +63,9 @@ export default function UseTerms() {
                 content={
                   <>
                     <p>
-                      Nosso sistema é fornecido "como está". Não garantimos ausência de falhas ou que o serviço será ininterrupto.
+                      Nosso sistema é fornecido &quot;como está&quot;. Não garantimos ausência de falhas ou que o serviço será ininterrupto.
                     </p>
+
                   </>
                 }
               />
