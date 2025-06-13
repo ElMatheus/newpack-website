@@ -1,3 +1,9 @@
+/**
+ * Desenvolvido por Matheus Gomes - [https://github.com/ElMatheus | matheusgomesgoncalves.564@gmail.com]
+ * Projeto: NEWPACK-WEBSITE
+ * Data de criação: 2025
+ */
+
 "use client";
 import Image from "next/image";
 import { AnimatedSection, StaggeredList } from "@/components/animations";
