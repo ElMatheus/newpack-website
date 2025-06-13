@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react"
+import { Variants } from "motion/react";
 import { ReactNode } from "react";
 
 interface AnimationProps {
@@ -18,29 +19,19 @@ export function AnimatedSection({ children, delay = 0, className = '' }: DelayPr
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      variants={
+        {
+          hidden: { opacity: 0, y: 20 },
+          visible: { opacity: 1, y: 0 }
+        }
+      }
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true }}
       transition={{
         duration: 0.8,
         delay: delay,
         ease: [0.4, 0, 0.2, 1]
-      }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-export function FadeInWhenVisible({ children, delay = 0 }: DelayProps) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{
-        duration: 0.5,
-        delay: delay
       }}
     >
       {children}
@@ -72,7 +63,7 @@ export function StaggeredList({ children, className = '' }: AnimationProps) {
 }
 
 export function StaggeredItem({ children, className = '' }: AnimationProps) {
-  const item = {
+  const item: Variants = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } }
   };

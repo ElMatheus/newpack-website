@@ -1,5 +1,5 @@
 import { StaggeredItem } from "../animations";
-import { motion } from "framer-motion";
+import { motion } from "motion/react"
 import { Category } from "@/types/Category";
 
 export default function Card({ title, description, icon, color, hoverColor }: Category) {

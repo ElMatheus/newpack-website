@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react"
 
 const menuItems = [
-  { name: "Home", href: "#" },
-  { name: "Serviços", href: "#services" },
-  { name: "Contato", href: "#newpack" },
+  { name: "Home", href: "/#" },
+  { name: "Serviços", href: "/#services" },
+  { name: "Contato", href: "/#newpack" },
 ];
 
 export function Header() {

@@ -7,7 +7,7 @@
 "use client";
 import Image from "next/image";
 import { AnimatedSection, StaggeredList } from "@/components/animations";
-import { motion } from "framer-motion";
+import { motion } from "motion/react"
 import ServiceCard from "@/components/serviceCard";
 import ContactCard from "@/components/contactCard";
 import Banner from "@/components/callBanner";
@@ -118,7 +118,7 @@ export default function Home() {
           </StaggeredList>
         </div>
       </section>
-      <section id="newpack" className="py-16 px-4 bg-gradient-to-br mb-8 from-gray-50 to-gray-100">
+      <section id="newpack" className="py-16 px-4 bg-gradient-to-br  from-gray-50 to-gray-100">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-10">
             <div className="md:w-1/2 flex justify-center">

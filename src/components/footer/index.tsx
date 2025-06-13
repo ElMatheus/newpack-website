@@ -27,13 +27,13 @@ export function Footer() {
           </p>
           <div className="flex flex-wrap gap-4 mt-2 justify-center">
             <Link
-              href="#"
+              href="/privacy-policy"
               className="text-sm md:text-base hover:text-[var(--primary)] transition-colors duration-300 border-b border-transparent hover:border-[var(--primary)] pb-1"
             >
               Política de Privacidade
             </Link>
             <Link
-              href="#"
+              href="/use-terms"
               className="text-sm md:text-base hover:text-[var(--primary)] transition-colors duration-300 border-b border-transparent hover:border-[var(--primary)] pb-1"
             >
               Termos de Uso
