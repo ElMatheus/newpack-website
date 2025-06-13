@@ -11,6 +11,8 @@ import { motion } from "framer-motion";
 import ServiceCard from "@/components/serviceCard";
 import ContactCard from "@/components/contactCard";
 import Banner from "@/components/callBanner";
+import { FileImage, Package, Film } from "lucide-react"
+
 
 export default function Home() {
   return (
@@ -94,21 +96,21 @@ export default function Home() {
               <ServiceCard
                 title={"GRÁFICA"}
                 description={"Insumos de alta qualidade para todo tipo de impressão."}
-                icon={"🖨️"}
+                icon={<FileImage className="bg-[#fb2d54] rounded-2xl p-3" color="#fff" size={52} strokeWidth={1.75} />}
                 color={"var(--primary)"}
                 hoverColor={"rgba(0, 175, 239, 0.1)"}
               />
               <ServiceCard
                 title={"CARTONAGEM"}
                 description={"Materiais premium para embalagens e produtos em cartão."}
-                icon={"📦"}
+                icon={<Package className="bg-amber-400 rounded-2xl p-3" color="#fff" size={52} strokeWidth={1.75} />}
                 color={"var(--secondary)"}
                 hoverColor={"rgba(75, 101, 130, 0.1)"}
               />
               <ServiceCard
                 title={"CLICHERIA"}
                 description={"Soluções completas para preparação e suporte em clichês de impressão."}
-                icon={"🎞️"}
+                icon={<Film className="bg-emerald-400 rounded-2xl p-3" color="#fff" size={52} strokeWidth={1.75} />}
                 color={"var(--accent)"}
                 hoverColor={"rgba(55, 52, 53, 0.1)"}
               />
