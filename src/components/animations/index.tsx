@@ -32,7 +32,7 @@ export function AnimatedSection({ children, delay = 0, className = '' }: DelayPr
   );
 }
 
-export function FadeInWhenVisible({ children, delay = 0, className = '' }: DelayProps) {
+export function FadeInWhenVisible({ children, delay = 0 }: DelayProps) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
