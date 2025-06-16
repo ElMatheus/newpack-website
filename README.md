@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NEWPACK - Site Institucional
 
-## Getting Started
+Este é o repositório do site institucional da **NEWPACK**, uma empresa especializada em Insumos para Gráficas, Cartonagens e Clicherias.
 
-First, run the development server:
+> 🌐 Acesse o site: [www.solucoesnewpack.com.br](https://www.solucoesnewpack.com.br)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Tecnologias Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js** (App Router)
+- **TypeScript**
+- **Tailwind CSS**
+- **Framer Motion** (animações)
+- **Vercel** (deploy)
+- **Lucide** (icons)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🧩 Funcionalidades
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Site 100% responsivo
+- Página institucional com seções de apresentação da empresa, produtos e contato
+- Integração com WhatsApp
+- SEO básico aplicado
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🔒 Observações
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Este repositório é privado, pois o código é exclusivo da empresa.
+- O domínio é gerenciado pela equipe de desenvolvimento e hospedado na Vercel.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📫 Contato
+
+Caso tenha dúvidas técnicas ou sugestões, entre em contato pelo e-mail:  
+**solucoesnewpack@gmail.com**
+
+---
+
