@@ -15,7 +15,7 @@ interface FacetedNavigationProps {
   onFilterChange?: (filter: FilterData) => void;
 }
 
-export default function facetedNavigation({ categories, onFilterChange }: FacetedNavigationProps) {
+export default function FacetedNavigation({ categories, onFilterChange }: FacetedNavigationProps) {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [activeSubcategory, setActiveSubcategory] = useState<string | null>(null);
   const [activeSubSubcategory, setActiveSubSubcategory] = useState<string | null>(null);

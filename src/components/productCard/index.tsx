@@ -2,7 +2,7 @@ import { Product } from "@/types/Product"
 import ProductFeature from "../productFeature"
 import { useEffect, useState } from "react";
 
-export default function productCard({ photo, name, feature, feature2, category }: Product) {
+export default function ProductCard({ photo, name, feature, feature2, category }: Product) {
   const [productFeatures, setProductFeatures] = useState<string[]>([]);
 
   const baseFeatures = [
