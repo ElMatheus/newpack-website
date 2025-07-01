@@ -3,7 +3,7 @@
 import { AnimatedSection } from "@/components/animations";
 import Container from "@/components/infosContainer";
 import Buttons from "@/components/buttonsContainer";
-import Header from "@/components/headerArticles";
+import { Header } from "@/components/headerArticles";
 
 export default function PrivacyPolicy() {
   return (
