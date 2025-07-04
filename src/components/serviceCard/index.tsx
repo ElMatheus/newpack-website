@@ -2,7 +2,7 @@ import { StaggeredItem } from "../animations";
 import { motion } from "motion/react"
 import { Category } from "@/types/Category";
 
-export default function Card({ title, description, icon, color, hoverColor }: Category) {
+export default function Card({ title, slug, description, icon, color, hoverColor }: Category) {
   return (
     <StaggeredItem>
       <motion.div
@@ -17,10 +17,11 @@ export default function Card({ title, description, icon, color, hoverColor }: Ca
         <div className="text-5xl mb-4 transform transition-transform duration-300 hover:scale-110 inline-block">{icon}</div>
         <h3 className="text-xl font-semibold mb-3">{title}</h3>
         <p className="text-gray-600 mb-4">{description}</p>
-        <motion.button
+        <motion.a
           className="mt-4 text-sm font-medium flex items-center group cursor-pointer"
           style={{ color: color }}
           whileHover={{ x: 5 }}
+          href={`/services?type=category&value=${slug}&category=${slug}`}
         >
           Ver detalhes
           <motion.svg
@@ -32,7 +33,7 @@ export default function Card({ title, description, icon, color, hoverColor }: Ca
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </motion.svg>
-        </motion.button>
+        </motion.a>
       </motion.div>
     </StaggeredItem>
   )

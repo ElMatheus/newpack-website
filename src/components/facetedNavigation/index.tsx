@@ -1,34 +1,44 @@
 import { Categories } from "@/types/Categories"
 import { Search, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
-
-interface FilterData {
-  type: 'search' | 'category' | null;
-  value: string | null;
-  category?: string | null;
-  subcategory?: string | null;
-  subSubcategory?: string | null;
-}
+import { Filter } from "@/types/Filter";
 
 interface FacetedNavigationProps {
   categories: Categories;
-  onFilterChange?: (filter: FilterData) => void;
+  onFilterChange?: (filter: Filter) => void;
+  initialFilter?: Filter | null;
 }
 
-export default function FacetedNavigation({ categories, onFilterChange }: FacetedNavigationProps) {
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
-  const [activeSubcategory, setActiveSubcategory] = useState<string | null>(null);
-  const [activeSubSubcategory, setActiveSubSubcategory] = useState<string | null>(null);
-  const [inputValue, setInputValue] = useState<string>("");
+export default function FacetedNavigation({ categories, onFilterChange, initialFilter }: FacetedNavigationProps) {
+  const [activeCategory, setActiveCategory] = useState<string | null>(initialFilter?.category ?? null);
+  const [activeSubcategory, setActiveSubcategory] = useState<string | null>(initialFilter?.subcategory ?? null);
+  const [activeSubSubcategory, setActiveSubSubcategory] = useState<string | null>(initialFilter?.subSubcategory ?? null);
+  const [inputValue, setInputValue] = useState<string>(initialFilter?.type == "search" ? initialFilter.value || "" : "");
 
   useEffect(() => {
-    if (activeCategory) {
+    if (activeCategory && !activeSubcategory && !activeSubSubcategory) {
       onFilterChange?.({
         type: 'category',
         value: activeCategory,
         category: activeCategory,
+        subcategory: null,
+        subSubcategory: null,
+      });
+    } else if (activeCategory && activeSubcategory && !activeSubSubcategory) {
+      onFilterChange?.({
+        type: 'subcategory',
+        value: activeSubcategory,
+        category: activeCategory,
         subcategory: activeSubcategory,
-        subSubcategory: activeSubSubcategory
+        subSubcategory: null,
+      });
+    } else if (activeCategory && activeSubcategory && activeSubSubcategory) {
+      onFilterChange?.({
+        type: 'subSubcategory',
+        value: activeSubSubcategory,
+        category: activeCategory,
+        subcategory: activeSubcategory,
+        subSubcategory: activeSubSubcategory,
       });
     }
   }, [activeCategory, activeSubcategory, activeSubSubcategory]);
@@ -46,7 +56,6 @@ export default function FacetedNavigation({ categories, onFilterChange }: Facete
       });
     }
   };
-
 
   const handleCategoryClick = (categoryName: string) => {
     if (activeCategory === categoryName) {
@@ -115,7 +124,7 @@ export default function FacetedNavigation({ categories, onFilterChange }: Facete
             onClick={handleSearchClick}
             className="cursor-pointer hover:text-[var(--primary)] transition-colors duration-300"
           />
-          <input value={inputValue} onChange={handleInputChange} onKeyPress={handleKeyPress} className="w-full outline-none " type="text" placeholder="Procurar..." />
+          <input value={inputValue} id="search" name="search" onChange={handleInputChange} onKeyPress={handleKeyPress} className="w-full outline-none " type="text" placeholder="Procurar..." />
         </div>
         <nav>
           <ul className="flex flex-row gap-4 md:gap-6">

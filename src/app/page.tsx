@@ -10,7 +10,6 @@ import { AnimatedSection, StaggeredList } from "@/components/animations";
 import { motion } from "motion/react"
 import ServiceCard from "@/components/serviceCard";
 import ContactCard from "@/components/contactCard";
-import Banner from "@/components/callBanner";
 import { FileImage, Package, Film } from "lucide-react"
 
 
@@ -95,6 +94,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <ServiceCard
                 title={"GRÁFICA"}
+                slug={"Gráfica"}
                 description={"Insumos de alta qualidade para todo tipo de impressão."}
                 icon={<FileImage className="bg-[#fb2d54] rounded-2xl p-3" color="#fff" size={52} strokeWidth={1.75} />}
                 color={"var(--primary)"}
@@ -102,6 +102,7 @@ export default function Home() {
               />
               <ServiceCard
                 title={"CARTONAGEM"}
+                slug={"Cartonagem"}
                 description={"Materiais premium para embalagens e produtos em cartão."}
                 icon={<Package className="bg-amber-400 rounded-2xl p-3" color="#fff" size={52} strokeWidth={1.75} />}
                 color={"var(--secondary)"}
@@ -109,6 +110,7 @@ export default function Home() {
               />
               <ServiceCard
                 title={"CLICHERIA"}
+                slug={"Clicheria"}
                 description={"Soluções completas para preparação e suporte em clichês de impressão."}
                 icon={<Film className="bg-emerald-400 rounded-2xl p-3" color="#fff" size={52} strokeWidth={1.75} />}
                 color={"var(--accent)"}
@@ -161,12 +163,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <Banner
-        title="Pronto para transformar seu negócio?"
-        subtitle="Entre em contato conosco hoje mesmo e descubra como a NEWPACK pode fornecer as melhores soluções em insumos para o seu segmento."
-        txtButton="Fale Conosco"
-        urlButton="https://wa.me/5519996511990?text=Olá!%20Gostaria%20de%20saber%20mais%20informações%20sobre%20seus%20serviços."
-      />
     </main >
   );
 }

@@ -1,9 +1,11 @@
 import { Product } from "@/types/Product"
 import ProductFeature from "../productFeature"
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
-export default function ProductCard({ photo, name, feature, feature2, category }: Product) {
+export function ProductCard({ photo, name, feature, feature2, category, isSale }: Product) {
   const [productFeatures, setProductFeatures] = useState<string[]>([]);
+  const [imageLoading, setImageLoading] = useState(true);
 
   const baseFeatures = [
     "Alta qualidade",
@@ -72,11 +74,38 @@ export default function ProductCard({ photo, name, feature, feature2, category }
     <div className="group bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-[var(--primary)]/40 transform hover:-translate-y-3 hover:scale-[1.02] relative flex flex-col">
       {/* Image Container */}
       <div className="relative overflow-hidden h-64 md:h-72">
-        <img
-          src={photo}
-          alt={`imagem do produto ${name}`}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
+        {photo ? (
+          <div className="w-full h-full relative">
+            <Image
+              src={photo}
+              alt={`imagem do produto ${name}`}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className={`object-cover transition-transform duration-500 group-hover:scale-110 ${imageLoading ? "blur-sm" : "blur-0"
+                }`}
+              onLoad={() => setImageLoading(false)}
+              priority={false}
+              loading="lazy"
+            />
+            {imageLoading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                <div className="w-10 h-10 border-4 border-[var(--primary)] border-t-transparent rounded-full animate-spin"></div>
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="w-full h-full relative">
+            <Image
+              src="/not-found-image.png"
+              alt={`imagem do produto ${name}`}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              priority={false}
+              loading="lazy"
+            />
+          </div>
+        )}
 
         {/* Category Badge */}
         <div className="absolute top-4 left-4">
@@ -135,18 +164,22 @@ export default function ProductCard({ photo, name, feature, feature2, category }
           ))}
         </div>
 
-
-        {/* Footer Section */}
         <div className="mt-auto pt-4 border-t border-gray-100">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <div className="flex items-center space-x-1">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm text-[var(--secondary)] font-medium">
-                  Em oferta
-                </span>
-              </div>
-            </div>
+            {
+              isSale ? (
+                <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-1">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm text-[var(--secondary)] font-medium">
+                      Em oferta
+                    </span>
+                  </div>
+                </div>
+              ) : (
+                <div />
+              )
+            }
 
             <div className="flex items-center space-x-2">
               {/* <button className="p-2 text-[var(--primary)] hover:bg-[var(--primary)]/10 rounded-full transition-colors duration-200 group/fav">
@@ -177,5 +210,19 @@ export default function ProductCard({ photo, name, feature, feature2, category }
       </div>
     </div>
 
+  )
+}
+
+export function ProductCardSkeleton() {
+  return (
+    <div className="animate-pulse bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+      <div className="h-64 md:h-72 bg-gray-200"></div>
+      <div className="p-6 space-y-4">
+        <div className="h-6 bg-gray-200 w-3/4 rounded"></div>
+        <div className="h-4 bg-gray-200 w-full rounded"></div>
+        <div className="h-4 bg-gray-200 w-full rounded"></div>
+        <div className="h-4 bg-gray-200 w-full rounded"></div>
+      </div>
+    </div>
   )
 }
