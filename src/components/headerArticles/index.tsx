@@ -1,7 +1,6 @@
 "use client";
 import { HeaderInfos } from "@/types/Header";
 import { AnimatedSection } from "../animations";
-import { motion } from "motion/react"
 
 export function Header({ title, subtitle }: HeaderInfos) {
   return (
