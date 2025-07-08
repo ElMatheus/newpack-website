@@ -24,22 +24,16 @@ export function Header({ title, subtitle }: HeaderInfos) {
 export function Header2({ title, subtitle }: HeaderInfos) {
   return (
     <section className="flex flex-col gap-3 md:max-w-1/2">
-      <motion.h2
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+      <h2
         className="text-[var(--secondary)] text-base md:text-lg"
       >
         {title}
-      </motion.h2>
-      <motion.h1
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
+      </h2>
+      <h1
         className="text-2xl md:text-3xl font-semibold text-[var(--accent)]"
       >
         {subtitle}
-      </motion.h1>
+      </h1>
     </section>
   )
 }

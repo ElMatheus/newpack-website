@@ -1,120 +1,113 @@
+'use client'
+
 import { Categories } from "@/types/Categories"
 import { Search, ChevronDown } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Filter } from "@/types/Filter";
+import { useRouter } from 'next/navigation'
 
-interface FacetedNavigationProps {
-  categories: Categories;
-  onFilterChange?: (filter: Filter) => void;
-  initialFilter?: Filter | null;
-}
+const categories: Categories = [
+  {
+    category: "Gráfica",
+    subcategories: [
+      { name: "Borrachas" },
+      { name: "Sloters" },
+    ]
+  },
+  {
+    category: "Cartonagem",
+    subcategories: [
+      { name: "Teste" },
+    ]
+  },
+  {
+    category: "Clicheria",
+    subcategories: [
+      {
+        name: "Rotativas",
+        subcategories: [
+          { name: "Borrachas" },
+          { name: "Sloters" }
+        ]
+      },
+      {
+        name: "Planas",
+        subcategories: [
+          { name: "Borrachas" },
+          { name: "Sloters" }
+        ]
+      },
+    ]
 
-export default function FacetedNavigation({ categories, onFilterChange, initialFilter }: FacetedNavigationProps) {
+  }
+];
+
+export default function FacetedNavigation({ initialFilter }: { initialFilter?: Filter }) {
+  const router = useRouter();
+  const [inputValue, setInputValue] = useState(initialFilter?.type === "search" ? initialFilter.value || "" : "");
   const [activeCategory, setActiveCategory] = useState<string | null>(initialFilter?.category ?? null);
   const [activeSubcategory, setActiveSubcategory] = useState<string | null>(initialFilter?.subcategory ?? null);
   const [activeSubSubcategory, setActiveSubSubcategory] = useState<string | null>(initialFilter?.subSubcategory ?? null);
-  const [inputValue, setInputValue] = useState<string>(initialFilter?.type == "search" ? initialFilter.value || "" : "");
 
-  useEffect(() => {
-    if (activeCategory && !activeSubcategory && !activeSubSubcategory) {
-      onFilterChange?.({
-        type: 'category',
-        value: activeCategory,
-        category: activeCategory,
-        subcategory: null,
-        subSubcategory: null,
-      });
-    } else if (activeCategory && activeSubcategory && !activeSubSubcategory) {
-      onFilterChange?.({
-        type: 'subcategory',
-        value: activeSubcategory,
-        category: activeCategory,
-        subcategory: activeSubcategory,
-        subSubcategory: null,
-      });
-    } else if (activeCategory && activeSubcategory && activeSubSubcategory) {
-      onFilterChange?.({
-        type: 'subSubcategory',
-        value: activeSubSubcategory,
-        category: activeCategory,
-        subcategory: activeSubcategory,
-        subSubcategory: activeSubSubcategory,
-      });
-    }
-  }, [activeCategory, activeSubcategory, activeSubSubcategory]);
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  }
 
-  const notifyFilterChange = (type: 'search' | 'category' | null, value?: string) => {
-    if (type === 'search') {
-      onFilterChange?.({
-        type: 'search',
-        value: value || null
-      });
-    } else if (type === null) {
-      onFilterChange?.({
-        type: null,
-        value: null
-      });
+  const handleSearchClick = () => {
+    if (inputValue.trim() === "") {
+      router.push('/services');
+    } else {
+      router.push(`/services?type=search&value=${encodeURIComponent(inputValue.trim())}`);
     }
-  };
+    setActiveCategory(null);
+    setActiveSubcategory(null);
+    setActiveSubSubcategory(null);
+  }
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSearchClick();
+    }
+  }
 
   const handleCategoryClick = (categoryName: string) => {
     if (activeCategory === categoryName) {
       setActiveCategory(null);
       setActiveSubcategory(null);
       setActiveSubSubcategory(null);
-      notifyFilterChange(null);
+      router.push('/services');
     } else {
       setActiveCategory(categoryName);
       setActiveSubcategory(null);
       setActiveSubSubcategory(null);
+      router.push(`/services?type=category&category=${encodeURIComponent(categoryName)}`);
     }
     setInputValue("");
   };
-
 
   const handleSubcategoryClick = (subcategoryName: string) => {
     if (activeSubcategory === subcategoryName) {
       setActiveSubcategory(null);
       setActiveSubSubcategory(null);
+      router.push(`/services?type=category&category=${encodeURIComponent(activeCategory || '')}`);
     } else {
       setActiveSubcategory(subcategoryName);
       setActiveSubSubcategory(null);
+      router.push(`/services?type=subcategory&category=${encodeURIComponent(activeCategory || '')}&subcategory=${encodeURIComponent(subcategoryName)}`);
     }
+    setInputValue("");
   };
 
   const handleSubSubcategoryClick = (subSubcategoryName: string) => {
     if (activeSubSubcategory === subSubcategoryName) {
       setActiveSubSubcategory(null);
+      router.push(`/services?type=subcategory&category=${encodeURIComponent(activeCategory || '')}&subcategory=${encodeURIComponent(activeSubcategory || '')}`);
     } else {
       setActiveSubSubcategory(subSubcategoryName);
+      router.push(`/services?type=subSubcategory&category=${encodeURIComponent(activeCategory || '')}&subcategory=${encodeURIComponent(activeSubcategory || '')}&subSubcategory=${encodeURIComponent(subSubcategoryName)}`);
     }
+    setInputValue("");
   };
-
-  const executeSearch = () => {
-    const query = inputValue.trim();
-    if (query) {
-      setActiveCategory(null);
-      setActiveSubcategory(null);
-      setActiveSubSubcategory(null);
-      notifyFilterChange('search', query);
-    } else {
-      notifyFilterChange(null);
-    }
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      executeSearch();
-    }
-  };
-  const handleSearchClick = () => {
-    executeSearch();
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-  };
-
 
   return (
     <section className="mt-7 mb-6.5 md:mb-9.5 md:mt-11.5 flex flex-col gap-6">

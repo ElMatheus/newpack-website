@@ -212,17 +212,3 @@ export function ProductCard({ photo, name, feature, feature2, category, isSale }
 
   )
 }
-
-export function ProductCardSkeleton() {
-  return (
-    <div className="animate-pulse bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-      <div className="h-64 md:h-72 bg-gray-200"></div>
-      <div className="p-6 space-y-4">
-        <div className="h-6 bg-gray-200 w-3/4 rounded"></div>
-        <div className="h-4 bg-gray-200 w-full rounded"></div>
-        <div className="h-4 bg-gray-200 w-full rounded"></div>
-        <div className="h-4 bg-gray-200 w-full rounded"></div>
-      </div>
-    </div>
-  )
-}
