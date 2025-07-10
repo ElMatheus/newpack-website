@@ -1,3 +1,4 @@
+"use client"
 import { Product } from "@/types/Product"
 import ProductFeature from "../productFeature"
 import { useEffect, useState } from "react";

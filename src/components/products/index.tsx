@@ -1,20 +1,13 @@
-"use client";
 import { GetProductsResponse } from "@/types/ApiTypes";
-import { AnimatedSection } from "../animations";
-import { use } from "react";
 import { ProductCard } from "../productCard";
 import Pagination from "../pagination";
 
-export default function Products({ promise, page }: { promise: Promise<GetProductsResponse>, page: number }) {
-  const result = use(promise);
-
+export default function Products({ result, page }: { result: GetProductsResponse, page: number }) {
   if (!result.success) {
     return (
-      <AnimatedSection>
-        <h2 className="text-xl text-center font-medium text-red-500">
-          Erro ao carregar produtos: {result.message}
-        </h2>
-      </AnimatedSection>
+      <h2 className="text-xl text-center font-medium text-red-500">
+        Erro ao carregar produtos: {result.message}
+      </h2>
     );
   }
 
@@ -23,9 +16,7 @@ export default function Products({ promise, page }: { promise: Promise<GetProduc
 
   if (pagination.total === 0) {
     return (
-      <AnimatedSection>
-        <h2 className="text-xl text-center font-medium text-[var(--accent)]">Nenhum resultado</h2>
-      </AnimatedSection>
+      <h2 className="text-xl text-center font-medium text-[var(--accent)]">Nenhum resultado</h2>
     );
   }
 

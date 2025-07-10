@@ -5,6 +5,7 @@ import { Filter } from "@/types/Filter";
 import { Suspense } from "react";
 import Products from "@/components/products";
 import { Skeletons } from "@/components/skeletons";
+import Await from "@/actions/await";
 
 export default async function OurServices({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] }> }) {
   const resolvedParams = await searchParams;
@@ -141,10 +142,9 @@ export default async function OurServices({ searchParams }: { searchParams: Prom
       }} />
 
       <Suspense fallback={<Skeletons />}>
-        <Products
-          promise={promise}
-          page={page}
-        />
+        <Await promise={promise}>
+          {(result) => <Products result={result} page={page} />}
+        </Await>
       </Suspense>
     </main>
   )

@@ -117,7 +117,7 @@ export default function FacetedNavigation({ initialFilter }: { initialFilter?: F
             onClick={handleSearchClick}
             className="cursor-pointer hover:text-[var(--primary)] transition-colors duration-300"
           />
-          <input value={inputValue} id="search" name="search" onChange={handleInputChange} onKeyPress={handleKeyPress} className="w-full outline-none " type="text" placeholder="Procurar..." />
+          <input value={inputValue} id="search" name="search" onChange={handleInputChange} onKeyPress={handleKeyPress} className="w-full outline-none" type="text" placeholder="Procurar..." />
         </div>
         <nav>
           <ul className="flex flex-row gap-4 md:gap-6">
