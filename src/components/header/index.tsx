@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react"
+import Link from "next/link";
 
 const menuItems = [
   { name: "Home", href: "/#" },
@@ -176,18 +177,18 @@ export function Header() {
               >
                 <h3 className="text-sm uppercase text-gray-500 mb-4">Contato</h3>
                 <div className="flex flex-col gap-3">
-                  <a href="mailto:solucoesnewpack@gmail.com" className="flex items-center text-[var(--primary)]">
+                  <Link href="mailto:solucoesnewpack@gmail.com" className="flex items-center text-[var(--primary)]">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                     solucoesnewpack@gmail.com
-                  </a>
-                  <a href="tel:+5519996511990" className="flex items-center text-[var(--primary)]">
+                  </Link>
+                  <Link href="tel:+5519996511990" className="flex items-center text-[var(--primary)]">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                     (19) 99651-1990
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
 
@@ -197,14 +198,13 @@ export function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 }}
               >
-                <a href="https://wa.me/5519996991843?text=Olá%2C%20gostaria%20de%20solicitar%20um%20orçamento." target="_blank"
+                <Link href="https://wa.me/5519996991843?text=Olá%2C%20gostaria%20de%20solicitar%20um%20orçamento." target="_blank"
                   rel="noopener noreferrer" className="bg-[var(--primary)] text-white w-full py-3 rounded-lg font-medium text-center">
                   Solicitar Orçamento
-                </a>
-                <a href="https://wa.me/5519996991843?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20da%20NEWPACK" target="_blank"
-                  rel="noopener noreferrer" className="border border-gray-300 text-gray-700 w-full py-3 rounded-lg font-medium hover:bg-gray-50 text-center">
+                </Link>
+                <Link onClick={() => setMenuOpen(false)} href="/services" className="border border-gray-300 text-gray-700 w-full py-3 rounded-lg font-medium hover:bg-gray-50 text-center">
                   Ver Catálogo
-                </a>
+                </Link>
               </motion.div>
             </div>
           </motion.div>

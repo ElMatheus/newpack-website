@@ -11,6 +11,7 @@ import { motion } from "motion/react"
 import ServiceCard from "@/components/serviceCard";
 import ContactCard from "@/components/contactCard";
 import { FileImage, Package, Film } from "lucide-react"
+import Link from "next/link";
 
 
 export default function Home() {
@@ -71,14 +72,13 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.4, duration: 0.5 }}
             >
-              <a href="https://wa.me/5519996511990?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20da%20NEWPACK" target="_blank"
-                rel="noopener noreferrer" className="bg-[var(--primary)] text-white font-medium py-3 px-6 rounded-lg shadow-lg hover:shadow-xl btn-hover">
+              <Link href="/services" className="bg-[var(--primary)] text-white font-medium py-3 px-6 rounded-lg shadow-lg hover:shadow-xl btn-hover">
                 Conheça nossos produtos
-              </a>
-              <a href="https://wa.me/5519996511990?text=Olá!%20Gostaria%20de%20saber%20mais%20informações%20sobre%20seus%20serviços." target="_blank"
+              </Link>
+              <Link href="https://wa.me/5519996511990?text=Olá!%20Gostaria%20de%20saber%20mais%20informações%20sobre%20seus%20serviços." target="_blank"
                 rel="noopener noreferrer" className="bg-white text-[var(--accent)] font-medium py-3 px-6 rounded-lg border-2 border-[var(--accent)] shadow-md hover:shadow-lg hover:bg-[var(--accent)] hover:text-white cursor-pointer btn-hover">
                 Entre em contato
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
