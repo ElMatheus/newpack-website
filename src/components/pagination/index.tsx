@@ -29,9 +29,9 @@ export default function Pagination({ currentPage, totalPages }: { currentPage: n
             <Link
               key={pageNum}
               href={buildLink(pageNum)}
-              className={`hidden md:block px-4 py-2 rounded-md ${pageNum === currentPage
+              className={` px-4 py-2 rounded-md ${pageNum === currentPage
                 ? 'bg-[var(--primary)] text-white'
-                : 'text-[var(--accent)] hover:bg-[var(--accent)]/10'
+                : 'text-[var(--accent)] hover:bg-[var(--accent)]/10 hidden lg:block'
                 }`}
             >
               {pageNum}
@@ -49,6 +49,7 @@ export default function Pagination({ currentPage, totalPages }: { currentPage: n
           Próximo
         </Link>
       </div>
+      <p className="text-[var(--accent)] text-sm font-normal lg:hidden mt-3.5 text-left">Página {currentPage} de {totalPages}</p>
     </>
   );
 }
