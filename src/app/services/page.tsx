@@ -69,7 +69,7 @@ export default async function OurServices({ searchParams }: { searchParams: Prom
       if (filter.category === "Gráfica") {
         // Exemplo: Borracha ou Sloter (ou ambos)
         if (filter.subcategory === "Borrachas") {
-          return { categories: "facas_graficas", search: "borracha", page };
+          return { categories: "facas_graficas", search: ["expanflex", "tira"], page };
         }
         if (filter.subcategory === "Sloters") {
           // sloter e celastro juntos

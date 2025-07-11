@@ -21,7 +21,7 @@ export const getProducts = async ({
     params.append("page", page.toString());
     params.append("limit", "12");
     if (search) params.append("search", search);
-    if (search2) params.append("search2", search2);
+    if (search2) params.append("search", search2);
 
     const url = `${api}?${params.toString()}`;
 
