@@ -22,15 +22,9 @@ Este é o repositório do site institucional da **NEWPACK**, uma empresa especia
 
 - Site 100% responsivo
 - Página institucional com seções de apresentação da empresa, produtos e contato
+- Listagem dinâmica de produtos via integração com API
 - Integração com WhatsApp
 - SEO básico aplicado
-
----
-
-## 🔒 Observações
-
-- Este repositório é privado, pois o código é exclusivo da empresa.
-- O domínio é gerenciado pela equipe de desenvolvimento e hospedado na Vercel.
 
 ---
 
