@@ -23,7 +23,7 @@ export function Footer() {
       <div className="py-8 px-8 bg-[var(--accent)] lg:w-[70%] flex justify-center lg:justify-end">
         <div className="flex-col w-fit flex lg:items-end">
           <p className="font-medium text-center text-sm md:text-base">
-            © {new Date().getFullYear()} NEWPACK. Todos os direitos reservados.
+            © {new Date().getFullYear()} NEWPACK. Todos os direitos reservados. Desenvolvido por Matheus Gomes
           </p>
           <div className="flex flex-wrap gap-4 mt-2 justify-center">
             <Link

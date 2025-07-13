@@ -2,6 +2,7 @@
   "name": "newpack-website",
   "version": "1.0.0",
   "private": true,
+  "author": "Matheus Gomes",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
