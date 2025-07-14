@@ -15,6 +15,27 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "NEWPACK - Insumos para Gráficas, Cartonagens e Clicherias",
   description: "NEWPACK - Soluções completas em insumos para Gráficas, Cartonagens e Clicherias. Apoiando o esporte e a excelência em materiais gráficos.",
+  keywords: "NEWPACK, insumos, gráficas, cartonagens, clicherias, soluções gráficas, materiais gráficos",
+  icons: {
+    icon: "/newpack.svg",
+    apple: "/newpack.svg",
+  },
+  openGraph: {
+    title: "NEWPACK - Insumos para Gráficas, Cartonagens e Clicherias",
+    description: "NEWPACK - Soluções completas em insumos para Gráficas, Cartonagens e Clicherias. Apoiando o esporte e a excelência em materiais gráficos.",
+    url: "https://solucoesnewpack.com.br",
+    type: "website",
+    locale: "pt-BR",
+    siteName: "NEWPACK",
+    images: [
+      {
+        url: "https://www.solucoesnewpack.com.br/newpack.svg",
+        width: 1200,
+        height: 630,
+        alt: "Logo da NEWPACK",
+      }
+    ],
+  },
 };
 
 export default function RootLayout({
