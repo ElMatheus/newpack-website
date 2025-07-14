@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "NEWPACK",
     images: [
       {
-        url: "https://www.solucoesnewpack.com.br/newpack.svg",
+        url: "https://www.solucoesnewpack.com.br/og-newpack.png",
         width: 1200,
         height: 630,
         alt: "Logo da NEWPACK",
