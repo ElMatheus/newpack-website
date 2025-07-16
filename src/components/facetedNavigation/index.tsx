@@ -37,8 +37,22 @@ const categories: Categories = [
           { name: "Sloters" }
         ]
       },
+      {
+        name: "Clichês",
+        subcategories: [
+          { name: "Barra" },
+          { name: "Garra" },
+          { name: "Costura" },
+          { name: "Vinco" }
+        ]
+      },
     ]
-
+  },
+  {
+    category: "Outros",
+    subcategories: [
+      { name: "Colas" },
+    ]
   }
 ];
 

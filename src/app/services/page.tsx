@@ -65,8 +65,10 @@ export default async function OurServices({ searchParams }: { searchParams: Prom
         return { categories: "facas_cartonagem", search: "", page };
       }
       if (filter.category === "Clicheria") {
-        // Clicheria engloba planas e rotativas
-        return { categories: "facas_planas,facas_rotativas", search: "", page };
+        return { categories: "facas_planas,facas_rotativas,cliches", search: "", page };
+      }
+      if (filter.category === "Outros") {
+        return { categories: "outros", search: "", page };
       }
     }
 
@@ -89,6 +91,14 @@ export default async function OurServices({ searchParams }: { searchParams: Prom
         if (filter.subcategory === "Planas") {
           return { categories: "facas_planas", search: "", page };
         }
+        if (filter.subcategory === "Clichês") {
+          return { categories: "cliches", search: "", page };
+        }
+      }
+      if (filter.category === "Outros") {
+        if (filter.subcategory === "Colas") {
+          return { categories: "outros", search: "cola", page };
+        }
       }
     }
 
@@ -109,6 +119,20 @@ export default async function OurServices({ searchParams }: { searchParams: Prom
           }
           if (filter.subSubcategory === "Sloters") {
             return { categories: "facas_planas", search: ["sloter", "celastro"], page };
+          }
+        }
+        if (filter.subcategory === "Clichês") {
+          if (filter.subSubcategory === "Barra") {
+            return { categories: "cliches", search: "barra", page };
+          }
+          if (filter.subSubcategory === "Garra") {
+            return { categories: "cliches", search: ["garra", "garrinha"], page };
+          }
+          if (filter.subSubcategory === "Costura") {
+            return { categories: "cliches", search: "costura", page };
+          }
+          if (filter.subSubcategory === "Vinco") {
+            return { categories: "cliches", search: "vinco", page };
           }
         }
       }
