@@ -40,10 +40,11 @@ const categories: Categories = [
       {
         name: "Clichês",
         subcategories: [
-          { name: "Barra" },
+          { name: "Vinco" },
           { name: "Garra" },
           { name: "Costura" },
-          { name: "Vinco" }
+          { name: "Barra" },
+          { name: "Esticador" }
         ]
       },
     ]
@@ -52,6 +53,7 @@ const categories: Categories = [
     category: "Outros",
     subcategories: [
       { name: "Colas" },
+      { name: "Aceleradores" }
     ]
   }
 ];

@@ -99,6 +99,9 @@ export default async function OurServices({ searchParams }: { searchParams: Prom
         if (filter.subcategory === "Colas") {
           return { categories: "outros", search: "cola", page };
         }
+        if (filter.subcategory === "Aceleradores") {
+          return { categories: "outros", search: "acelerador", page };
+        }
       }
     }
 
@@ -107,7 +110,7 @@ export default async function OurServices({ searchParams }: { searchParams: Prom
       if (filter.category === "Clicheria") {
         if (filter.subcategory === "Rotativas") {
           if (filter.subSubcategory === "Borrachas") {
-            return { categories: "facas_rotativas", search: "borracha", page };
+            return { categories: "facas_rotativas", search: ["borracha", "puxador"], page };
           }
           if (filter.subSubcategory === "Sloters") {
             return { categories: "facas_rotativas", search: ["sloter", "celastro"], page };
@@ -115,7 +118,7 @@ export default async function OurServices({ searchParams }: { searchParams: Prom
         }
         if (filter.subcategory === "Planas") {
           if (filter.subSubcategory === "Borrachas") {
-            return { categories: "facas_planas", search: "borracha", page };
+            return { categories: "facas_planas", search: ["borracha", "tira"], page };
           }
           if (filter.subSubcategory === "Sloters") {
             return { categories: "facas_planas", search: ["sloter", "celastro"], page };
@@ -126,13 +129,16 @@ export default async function OurServices({ searchParams }: { searchParams: Prom
             return { categories: "cliches", search: "barra", page };
           }
           if (filter.subSubcategory === "Garra") {
-            return { categories: "cliches", search: ["garra", "garrinha"], page };
+            return { categories: "cliches", search: ["perfil garra", "garrinha"], page };
           }
           if (filter.subSubcategory === "Costura") {
             return { categories: "cliches", search: "costura", page };
           }
           if (filter.subSubcategory === "Vinco") {
             return { categories: "cliches", search: "vinco", page };
+          }
+          if (filter.subSubcategory === "Esticador") {
+            return { categories: "cliches", search: ["esticador", "tensor"], page };
           }
         }
       }
