@@ -136,7 +136,7 @@ export default function FacetedNavigation({ initialFilter }: { initialFilter?: F
           <input value={inputValue} id="search" name="search" onChange={handleInputChange} onKeyPress={handleKeyPress} className="w-full outline-none" type="text" placeholder="Procurar..." />
         </div>
         <nav>
-          <ul className="flex flex-row gap-4 md:gap-6">
+          <ul className="flex flex-row gap-4 md:gap-6 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] whitespace-nowrap [&::-webkit-scrollbar]:hidden">
             {categories.map((category) => (
               <li key={category.category} className="relative">
                 <button
