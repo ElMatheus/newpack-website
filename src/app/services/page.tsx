@@ -13,6 +13,86 @@ import Products from "@/components/products";
 import { Skeletons } from "@/components/skeletons";
 import Await from "@/actions/await";
 
+import { Metadata } from "next";
+
+export async function generateMetadata({ searchParams }: { searchParams: { [key: string]: string | string[] } }): Promise<Metadata> {
+  const search = await searchParams;
+  const type = typeof search.type === 'string' ? search.type : undefined;
+  const value = typeof search.value === 'string' ? search.value : undefined;
+  const category = typeof search.category === 'string' ? search.category : undefined;
+  const subcategory = typeof search.subcategory === 'string' ? search.subcategory : undefined;
+  const subSubcategory = typeof search.subSubcategory === 'string' ? search.subSubcategory : undefined;
+
+  let title = "Serviços / Produtos | Newpack";
+  let description = "Conheça nossos serviços e produtos de alta qualidade, adaptados às suas necessidades. Explore nossa variedade de soluções personalizadas.";
+  const url = new URL("https://solucoesnewpack.com.br/services");
+
+  if (type === "search" && value) {
+    title = `Busca por "${value}" | Produtos Newpack`;
+    description = `Veja os resultados da busca por "${value}" na Newpack. Produtos com qualidade e soluções sob medida.`;
+    url.searchParams.set("type", "search");
+    url.searchParams.set("value", value);
+  }
+
+  if (type === "category" && category) {
+    title = `Categoria ${category} | Produtos Newpack`;
+    description = `Confira todos os produtos da categoria ${category}, com alta qualidade e desempenho garantido.`;
+    url.searchParams.set("type", "category");
+    url.searchParams.set("category", category);
+  }
+
+  if (type === "subcategory" && category && subcategory) {
+    title = `${category} > ${subcategory} | Produtos Newpack`;
+    description = `Explore a subcategoria ${subcategory} da linha ${category}, com soluções personalizadas para sua necessidade.`;
+    url.searchParams.set("type", "subcategory");
+    url.searchParams.set("category", category);
+    url.searchParams.set("subcategory", subcategory);
+  }
+
+  if (type === "subSubcategory" && category && subcategory && subSubcategory) {
+    title = `${category} > ${subcategory} > ${subSubcategory} | Produtos Newpack`;
+    description = `Veja todos os produtos relacionados a ${subSubcategory} da linha ${category} / ${subcategory}. Alta performance e eficiência.`;
+    url.searchParams.set("type", "subSubcategory");
+    url.searchParams.set("category", category);
+    url.searchParams.set("subcategory", subcategory);
+    url.searchParams.set("subSubcategory", subSubcategory);
+  }
+
+  return {
+    title,
+    description,
+    keywords: "facas gráficas, facas, clicheria, facas rotativas, clichês, perfis, vinco, sloter, cola, borracha hexagonal, expanflex, perfil de vinco, newpack",
+    alternates: {
+      canonical: url.toString(),
+    },
+    openGraph: {
+      title,
+      description,
+      url: url.toString(),
+      siteName: "Newpack",
+      locale: "pt-BR",
+      type: "website",
+      images: [
+        {
+          url: "https://www.solucoesnewpack.com.br/og-newpack.png",
+          width: 1200,
+          height: 630,
+          alt: "Imagem de serviços e produtos da Newpack",
+        },
+      ],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
+    },
+  };
+}
+
+
 export default async function OurServices({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] }> }) {
   const resolvedParams = await searchParams;
   const page = typeof resolvedParams.page === 'string' ? Number(resolvedParams.page) : 1;
