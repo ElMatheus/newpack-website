@@ -70,7 +70,7 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
       title,
       description,
       url: url.toString(),
-      siteName: "Newpack",
+      siteName: "Soluções New Pack",
       locale: "pt-BR",
       type: "website",
       images: [

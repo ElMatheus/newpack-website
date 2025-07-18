@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url: "https://solucoesnewpack.com.br/privacy-policy",
     type: "website",
     locale: "pt-BR",
-    siteName: "Newpack",
+    siteName: "Soluções New Pack",
     images: [
       {
         url: "https://www.solucoesnewpack.com.br/og-newpack.png",

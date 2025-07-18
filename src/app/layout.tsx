@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     url: "https://solucoesnewpack.com.br",
     type: "website",
     locale: "pt-BR",
-    siteName: "NEWPACK",
+    siteName: "Soluções New Pack",
     images: [
       {
         url: "https://www.solucoesnewpack.com.br/og-newpack.png",
@@ -58,6 +58,19 @@ export default function RootLayout({
         <link rel="icon" type="image/svg+xml" href="/newpack.svg" />
         <meta name="theme-color" content="#00AFEF" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Soluções New Pack",
+              "url": "https://solucoesnewpack.com.br",
+              "logo": "https://solucoesnewpack.com.br/og-newpack.png",
+            }),
+          }}
+        ></script>
+
       </head>
       <body
         className={`${poppins.variable} antialiased`}
