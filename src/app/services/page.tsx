@@ -15,13 +15,14 @@ import Await from "@/actions/await";
 
 import { Metadata } from "next";
 
-export async function generateMetadata({ searchParams }: { searchParams: { [key: string]: string | string[] } }): Promise<Metadata> {
-  const search = await searchParams;
-  const type = typeof search.type === 'string' ? search.type : undefined;
-  const value = typeof search.value === 'string' ? search.value : undefined;
-  const category = typeof search.category === 'string' ? search.category : undefined;
-  const subcategory = typeof search.subcategory === 'string' ? search.subcategory : undefined;
-  const subSubcategory = typeof search.subSubcategory === 'string' ? search.subSubcategory : undefined;
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] }> }): Promise<Metadata> {
+  const params = await searchParams;
+
+  const type = typeof params.type === "string" ? params.type : "all";
+  const value = typeof params.value === "string" ? params.value : undefined;
+  const category = typeof params.category === 'string' ? params.category : undefined;
+  const subcategory = typeof params.subcategory === 'string' ? params.subcategory : undefined;
+  const subSubcategory = typeof params.subSubcategory === 'string' ? params.subSubcategory : undefined;
 
   let title = "Serviços / Produtos | Newpack";
   let description = "Conheça nossos serviços e produtos de alta qualidade, adaptados às suas necessidades. Explore nossa variedade de soluções personalizadas.";
@@ -91,7 +92,6 @@ export async function generateMetadata({ searchParams }: { searchParams: { [key:
     },
   };
 }
-
 
 export default async function OurServices({ searchParams }: { searchParams: Promise<{ [key: string]: string | string[] }> }) {
   const resolvedParams = await searchParams;
