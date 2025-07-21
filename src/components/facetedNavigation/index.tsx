@@ -27,6 +27,7 @@ const categories: Categories = [
         name: "Rotativas",
         subcategories: [
           { name: "Borrachas" },
+          { name: "Perfis de Vinco" },
           { name: "Sloters" }
         ]
       },
@@ -40,7 +41,6 @@ const categories: Categories = [
       {
         name: "Clichês",
         subcategories: [
-          { name: "Vinco" },
           { name: "Garra" },
           { name: "Costura" },
           { name: "Barra" },

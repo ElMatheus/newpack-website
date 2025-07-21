@@ -192,6 +192,9 @@ export default async function OurServices({ searchParams }: { searchParams: Prom
           if (filter.subSubcategory === "Borrachas") {
             return { categories: "facas_rotativas", search: ["borracha", "puxador"], page };
           }
+          if (filter.subSubcategory === "Perfis de Vinco") {
+            return { categories: "facas_rotativas", search: ["vinco"], page };
+          }
           if (filter.subSubcategory === "Sloters") {
             return { categories: "facas_rotativas", search: ["sloter", "celastro"], page };
           }
@@ -213,9 +216,6 @@ export default async function OurServices({ searchParams }: { searchParams: Prom
           }
           if (filter.subSubcategory === "Costura") {
             return { categories: "cliches", search: "costura", page };
-          }
-          if (filter.subSubcategory === "Vinco") {
-            return { categories: "cliches", search: "vinco", page };
           }
           if (filter.subSubcategory === "Esticador") {
             return { categories: "cliches", search: ["esticador", "tensor"], page };
